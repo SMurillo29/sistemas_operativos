@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.smv.sistemas_operativos.models.Response;
 import com.smv.sistemas_operativos.models.User;
 import com.smv.sistemas_operativos.repository.IUserRepository;
 
@@ -25,13 +26,15 @@ public class UserService {
 
 	}
 
-	public boolean insert(User user) {
+	public Response insert(User user) {
 		try {
 
 			userRepository.save(user);
-			return true;
+			Response response = new Response(true, "El usuario fue guardado con éxito");
+			return response;
 		} catch (Exception e) {
-			return false;
+			Response response = new Response(false, "Se presento un error al guardar el usuario");
+			return response;
 		}
 	}
 
@@ -40,12 +43,14 @@ public class UserService {
 		return user;
 	}
 
-	public boolean delete(Integer id) {
+	public Response delete(Integer id) {
 		User user = userRepository.findById(id).orElse(null);
-		if (user != null) {
+		if (user != null) {			
 			userRepository.delete(user);
-			return true;
+			Response response = new Response(true, "Usuario eliminado con éxito");
+			return response;
 		}
-		return false;
+		Response response = new Response(false, "Error al guardar el usuario");
+		return response;
 	}
 }

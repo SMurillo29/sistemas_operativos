@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
+import com.smv.sistemas_operativos.models.Response;
 import com.smv.sistemas_operativos.models.User;
 import com.smv.sistemas_operativos.services.UserService;
 
@@ -42,7 +41,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value = "/user/add")
-	public boolean add(@RequestBody User user) {		
+	public Response add(@RequestBody User user) {		
 		log.info("Creando/Actualizando ubicacionr - "+ user.toString());
 		return userService.insert(user);		
 	}
@@ -55,7 +54,7 @@ public class UserController {
 
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/user/delete/{id}")
-	public boolean delete(@PathVariable Integer id) {		
+	public Response delete(@PathVariable Integer id) {		
 		return userService.delete(id);
 	}	
 
