@@ -10,17 +10,7 @@ la sigiente tabla relaciona las tecnologías utilizadas.
 | JAVA JDK | 1.8 |
 | JPA | 2.2 |
 | Spring Boot | 2.5.4 |# API Sistemas Operativos
-## api de prueba de gradle con springboot
-## Tecnologías
 
-la sigiente tabla relaciona las tecnologías utilizadas.
-
-| Plugin | README |
-| ------ | ------ |
-| Gradle | 6.9.1 |
-| JAVA JDK | 1.8 |
-| JPA | 2.2 |
-| Spring Boot | 2.5.4 |
 
 ### Reference Documentation
 For further reference, please consider the following sections:
